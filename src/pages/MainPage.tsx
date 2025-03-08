@@ -15,7 +15,7 @@ const MainPage = () => {
 		fetchData();
 	}, [dispatch]);
 	return (
-		<div className="flex flex-col  items-start h-full font-InterR bg-[#06080C] px-[42px] pt-[53px]">
+		<div className="flex flex-col  items-start h-full font-InterR bg-[#06080C] px-[42px] pt-[53px] w-[1920px]">
 			<Header />
 			<CardsWidget />
 		</div>
