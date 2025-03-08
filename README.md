@@ -32,6 +32,6 @@ npm run dev
 Фронтенд:
 
 ```
-http://localhost:8080/Ftoyd
+https://razdva94.github.io/Ftoyd/
 ```
 
