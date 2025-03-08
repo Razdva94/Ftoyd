@@ -1,4 +1,3 @@
-import React from 'react';
 import alert from '@/assets/images/alert.svg';
 
 const HeaderErrorMessage = () => {

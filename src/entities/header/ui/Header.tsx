@@ -1,4 +1,3 @@
-import React from 'react';
 import logo from '@/assets/images/match-tracker.svg';
 import HeaderButton from './HeaderButton';
 import HeaderErrorMessage from './HeaderErrorMessage';

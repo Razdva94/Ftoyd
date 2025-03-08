@@ -1,4 +1,3 @@
-import React from 'react';
 import { Card } from '@/entities';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store';
