@@ -29,9 +29,7 @@ npm run dev
 ```
 
 
-Фронтенд:
+## Ссылки проекта
 
-```
-https://razdva94.github.io/Ftoyd/
-```
+- [Ссылка на Frontend](https://razdva94.github.io/Ftoyd/)
 
