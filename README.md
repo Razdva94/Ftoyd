@@ -28,3 +28,10 @@ npm install
 npm run dev
 ```
 
+
+Фронтенд:
+
+```
+http://localhost:8080/Ftoyd
+```
+
