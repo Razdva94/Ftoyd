@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import collectMatchesInfoReducer from './collectMatchesInfoSlice';
-import errorToggleReducer from './errorToggleSlice';
+import { matchesApi } from '@/shared';
 
 export const store = configureStore({
 	reducer: {
-		errorToggleHandler: errorToggleReducer,
-		collectMatchesInfoHandler: collectMatchesInfoReducer,
+		[matchesApi.reducerPath]: matchesApi.reducer,
 	},
+	middleware: (getDefaultMiddleware) =>
+		getDefaultMiddleware().concat(matchesApi.middleware),
 });
 
 export {};

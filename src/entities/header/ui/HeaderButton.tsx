@@ -1,28 +1,19 @@
 import React from 'react';
 import refresh from '@/assets/images/Refresh.svg';
 import classNames from 'classnames';
-import { setCurrentData } from '@/store/collectMatchesInfoSlice';
-import { api } from '@/shared';
-import { useDispatch } from 'react-redux';
-import { setErrorFalse, setErrorTrue } from '@/store/errorToggleSlice';
+import { matchesApi } from '@/shared';
 
-const HeaderButton = () => {
-	const [isAnimated, setIsAnimated] = React.useState(false);
-	const dispatch = useDispatch();
-	const handleClick = () => {
-		const fetchData = async () => {
-			dispatch(setErrorFalse());
-			setIsAnimated(true);
-			try {
-				const matches = await api.getMatches();
-				dispatch(setCurrentData(matches));
-			} catch {
-				dispatch(setErrorTrue());
-			}
-			setIsAnimated(false);
-		};
-		fetchData();
+const HeaderButton: React.FC = () => {
+	const [trigger, { isFetching }] = matchesApi.useLazyGetMatchesQuery();
+
+	const handleClick = async () => {
+		try {
+			await trigger();
+		} catch (error) {
+			console.log(error);
+		}
 	};
+
 	return (
 		<button
 			onClick={handleClick}
@@ -34,11 +25,9 @@ const HeaderButton = () => {
 			<p>Обновить</p>
 			<img
 				src={refresh}
-				className={classNames({
-					'animate-spin': isAnimated,
-				})}
+				className={classNames({ 'animate-spin': isFetching })}
 				alt="refresh"
-			></img>
+			/>
 		</button>
 	);
 };

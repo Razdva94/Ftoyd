@@ -1,21 +1,18 @@
 import { Header } from '@/entities';
-import { api } from '@/shared';
-import { setCurrentData } from '@/store/collectMatchesInfoSlice';
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import { matchesApi } from '@/shared';
 import { CardsWidget } from '@/widgets';
+import classNames from 'classnames';
 const MainPage = () => {
-	const dispatch = useDispatch();
-	React.useEffect(() => {
-		const fetchData = async () => {
-			const matches = await api.getMatches();
-			console.log(matches, 'matches');
-			dispatch(setCurrentData(matches));
-		};
-		fetchData();
-	}, [dispatch]);
+	const { data: data } = matchesApi.useGetMatchesQuery();
 	return (
-		<div className="flex flex-col  items-start h-full font-InterR bg-[#06080C] px-[42px] pt-[53px] w-[1920px]">
+		<div
+			className={classNames(
+				'flex flex-col  items-start font-InterR bg-[#06080C] px-[42px] pt-[53px] w-[1920px]',
+				{
+					'h-screen': data === undefined,
+				},
+			)}
+		>
 			<Header />
 			<CardsWidget />
 		</div>

@@ -1,2 +1,2 @@
-import { api } from './api';
-export { api };
+import { matchesApi } from './api';
+export { matchesApi };
